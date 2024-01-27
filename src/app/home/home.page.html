@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <img src="https://em-content.zobj.net/source/emojidex/59/large-blue-circle_1f535.png" width="6%"> Pokedex 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">ID del Pokémon</ion-label>
+          <ion-input [(ngModel)]="pokemonID"></ion-input>
+        </ion-item>
+        <ion-button (click)="getPokemonDataID(pokemonID)">Buscar por ID</ion-button>
+        <ion-card *ngIf="pokemonIDResult">
+          <img [src]="pokemonIDResult.sprites.front_default">
+          <ion-card-header>
+            <ion-card-title>{{ pokemonIDResult.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>ID: {{ pokemonIDResult.id }}</ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Nombre del Pokémon</ion-label>
+          <ion-input [(ngModel)]="pokemonName"></ion-input>
+        </ion-item>
+        <ion-button (click)="getPokemonDataName(pokemonName)">Buscar por nombre</ion-button>
+        <ion-card *ngIf="pokemonNameResult">
+          <img [src]="pokemonNameResult.sprites.front_default">
+          <ion-card-header>
+            <ion-card-title>{{ pokemonNameResult.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>ID: {{ pokemonNameResult.id }}</ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">ID del objeto</ion-label>
+          <ion-input [(ngModel)]="itemID"></ion-input>
+        </ion-item>
+        <ion-button (click)="getItemDataID(itemID)">Buscar por ID</ion-button>
+        <ion-card *ngIf="itemIDResult">
+          <img [src]="itemIDResult.sprites.default">
+          <ion-card-header>
+            <ion-card-title>{{ itemIDResult.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>ID: {{ itemIDResult.id }}</ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Nombre del objeto</ion-label>
+          <ion-input [(ngModel)]="itemName"></ion-input>
+        </ion-item>
+        <ion-button (click)="getItemDataName(itemName)">Buscar por nombre</ion-button>
+        <ion-card *ngIf="itemNameResult">
+          <img [src]="itemNameResult.sprites.default">
+          <ion-card-header>
+            <ion-card-title>{{ itemNameResult.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>ID: {{ itemNameResult.id }}</ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
